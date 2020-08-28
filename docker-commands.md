@@ -6,16 +6,20 @@
 `docker run -i -t ubuntu /bin/bash` -> (hace un create y un start) corre un contenedor ubuntu con terminal interactiva y ejecuta dentro el comando bash
 `docker create` -> crea contenedor
 `docker start` -> inicia contenedor
+`docker stop [nombre-contenedor]` -> detener el contenedor.
 `docker container run -i -t ubuntu /bin/bash` -> es un comando mas especifico al api de container
-`docker ps`-> muestra los que están corriendo y están activos.
+`docker ps`-> muestra los que están corriendo actualmente y están activos.
 `docker ps -a`-> muestra los contenedores existentes que están corriendo o no y no han sido eliminados
 `docker ps -a | grep beaver` -> esto muestra los contenedores pero
 `docker exec` -> inicia contenedores que esta corriendo.
 `docker start` -> inicia contenedor que esta detenido
 `docker images | grep `
 
+`docker network ls` -> lista las redes creadas por docker a los contenedores.
 
-`docker stop [nombre-contenedor]` -> detener el contenedor.
+`docker top magical_leakey`-> dice los procesos que corren dentro del contenedor
+
+`watch docker ps` -> nos muestra los contenedores que estan corriendo.
 
 `docker rm contenedor` -> quita completamente borra el contenedor
 `docker rmi image ` -> elimina una o mas imágenes

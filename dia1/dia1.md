@@ -41,10 +41,25 @@ Objetos primarios de docker.
 
 En que esta cimentado docker para ser tan especial.
 
-```docker run -i -t ubuntu /bin/bash``` -> hace un create y un start
+Este CLI a partir de la version 18.06, apareció el concepto de Management Commands.
+Por ejemplo cuando hago docker run, es exactamente igual si hiciera `docker container run`, docker empezo a tener tantos comandos que era muy dificil identificar.
+
 `docker container run -i -t ubuntu /bin/bash` -> es un comando mas especifico al api de container
-`docker top hungry_jones`-> dice los procesos que corren dentro del contenedor
-`docker ps -a`-> muestra los que están corriendo y no han sido eliminados
+`docker run -i -t ubuntu /bin/bash`-> hace un create y un start
+
+Cuando docker hace un `docker run` hace lo siguiente:
+1. Si no enecuntra l imagen en registry local, hace un pull de docker hub o registry remoto.
+2. Docker crea un nuevo contenedor con `docker create`
+3. Docker allocate un filesystem:rw de lectura y escritura como capa final para que podamos escribir y leer de este sistema de archivos.
+4. Docker crear  una interfaz virtual de red atachada a la red que docker le llama "default" (bridge es la red que usa docker para todos los contenedores), esto incluye dirección IP. 
+5. Docker inicia el contenedor y ejecuta "/bin/bash" como un terminal interactiva. que son las bandera -i(interactive) -t(tty)
+6. Cuando escribas "exit" o "ctrl+d" el contenedor se detendra pero no sera removido, puedes volver a iniciarlo.
+
+Si yo hago un `docker network ls` -> lista las redes creadas por docker a los contenedores y podremos ver la red bridge que es la red default o por defecto que utiliza docker para todos los contenedores.
+
+`docker top magical_leakey`-> dice los procesos que corren dentro del contenedor y lo mantienen vivo
+
+`docker ps -a`-> muestra todos los contenedores que en algun momento corrriendo y ahora estaque están corriendo y no han sido eliminados
 `docker exec` -> inicia contenedores que esta corriendo.
 `docker start` -> inicia contenedor que esta detenido para iniciar
 
@@ -52,10 +67,7 @@ En que esta cimentado docker para ser tan especial.
 docker ps
 ```
 
-1. 
-2. Docker crear  una interfaz virtual de red atachada a la red que docker le llama "default" (bridge es la red que usa docker para todos los contenedores), esto incluye dirección IP. 
-3. Docker inicia el contenedor y ejecuta "/bin/bash" como un terminal interactiva.
-4. Cuando escribas "exit"
+
 
 
 ## Repositorio para hacer fork
