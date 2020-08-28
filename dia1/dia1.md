@@ -35,7 +35,7 @@ Objetos primarios de docker.
 
 - Docker daemon: se encarga de generar y descargar imágenes, y los guarda en un Local registry.
 - Las imágenes suceden a partir de un `docker build` y `docker pull`
-- Cuando un container se crea o existe cuando se usa `docker run`
+- Cuando un container se crea o existe cuando se usa `docker run` es la combinación de 2 comandos `docker create` y `docker start` 
 
 # Docker Core
 
