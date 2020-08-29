@@ -34,6 +34,6 @@
 
 `docker network inspect` -> mostrar redes
 `docker attach`
-
+    
 # docker compose commands
 `docker-compose build`
