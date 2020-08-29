@@ -30,7 +30,7 @@ Existen 3 conceptos grandes:
 
 # Objetos Docker
 
-Se les conoce como first class citicenz.
+Se les conoce como first class citicenz. 
 Objetos primarios de docker.
 
 - Docker daemon: se encarga de generar y descargar imágenes, y los guarda en un Local registry.
